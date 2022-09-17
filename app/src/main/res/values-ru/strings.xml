@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">НМедиа</string>
     <string name="default_text">НМедиа!</string>
+    <string name="description_post_author_avatar">Аватар автора поста</string>
+    <string name="description_post_menu">Меню поста</string>
+    <string name="description_post_likes">Понравилось</string>
+    <string name="description_post_shares">Поделились</string>
+    <string name="description_post_views">Просмотров</string>
 </resources>
