@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="@string/description_post_author_avatar"
+        android:src="@drawable/ic_baseline_more_vert_24"
         tools:srcCompat="@sample/posts_avatar" />
 
     <TextView
@@ -29,7 +30,7 @@
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintBottom_toTopOf="@id/published"
         app:layout_constraintEnd_toStartOf="@id/menu"
-        tools:text="@sample/posts.json/data/author" />
+        android:text="@sample/posts.json/data/author" />
 
     <TextView
         android:id="@+id/published"
@@ -39,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/author"
         app:layout_constraintBottom_toBottomOf="@id/avatar"
         app:layout_constraintStart_toEndOf="@id/avatar"
-        tools:text="@sample/posts.json/data/published" />
+        android:text="@sample/posts.json/data/published" />
 
     <ImageButton
         android:id="@+id/menu"
@@ -67,7 +68,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@+id/barrierTop"
         android:autoLink="web"
-        tools:text="@sample/posts.json/data/content" />
+        android:text="@sample/posts.json/data/content" />
 
     <ImageView
         android:id="@+id/likes"
@@ -78,7 +79,8 @@
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="@string/description_post_likes"
-        tools:srcCompat="@drawable/ic_heart_24" />
+        android:src="@drawable/ic_heart_24"
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/likes_text"
@@ -88,7 +90,7 @@
         android:layout_height="@dimen/views_size"
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:layout_constraintStart_toEndOf="@id/likes"
-        tools:text="@sample/posts.json/data/likesCount" />
+        android:text="@sample/posts.json/data/likesCount" />
 
     <ImageView
         android:id="@+id/share"
@@ -99,7 +101,8 @@
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:layout_constraintStart_toStartOf="@id/likes_text"
         android:contentDescription="@string/description_post_shares"
-        tools:srcCompat="@drawable/ic_baseline_share_24" />
+        android:src="@drawable/ic_baseline_share_24"
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/shares_text"
@@ -109,7 +112,7 @@
         android:layout_height="@dimen/views_size"
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:layout_constraintStart_toEndOf="@id/share"
-        tools:text="@sample/posts.json/data/sharesCount" />
+        android:text="@sample/posts.json/data/sharesCount" />
 
     <ImageView
         android:id="@+id/view"
@@ -120,7 +123,8 @@
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:layout_constraintEnd_toStartOf="@id/view_text"
         android:contentDescription="@string/description_post_views"
-        tools:srcCompat="@drawable/ic_baseline_visibility_24" />
+        android:src="@drawable/ic_baseline_visibility_24"
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/view_text"
@@ -130,7 +134,7 @@
         android:layout_height="@dimen/views_size"
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@sample/posts.json/data/viewsCount" />
+        android:text="@sample/posts.json/data/viewsCount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
