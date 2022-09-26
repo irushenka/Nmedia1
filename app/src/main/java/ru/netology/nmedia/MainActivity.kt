@@ -75,6 +75,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.cancel.setOnClickListener {
             with(binding.content) {
+                viewModel.clear()
+
                 setText("")
                 clearFocus()
                 binding.cancel.visibility = View.INVISIBLE
