@@ -119,4 +119,44 @@
         app:icon="@drawable/ic_baseline_visibility_24"
         style="@style/Widget.AppTheme.IconButton" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/footerBeforeVideo"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="like, share, view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/video_block"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        app:layout_constraintTop_toBottomOf="@+id/footerBeforeVideo"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/video_block_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/video_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitCenter"
+                android:background="@color/white"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/video_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_video_24" />
+
+        </FrameLayout>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
