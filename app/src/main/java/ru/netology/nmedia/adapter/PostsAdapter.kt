@@ -1,6 +1,8 @@
 package ru.netology.nmedia.adapter
 
+import android.opengl.Visibility
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -15,6 +17,7 @@ interface OnInteractionListener {
     fun onShare(post: Post) {}
     fun onEdit(post: Post) {}
     fun onRemove(post: Post) {}
+    fun onShowVideo(post: Post) {}
 }
 
 class PostsAdapter(
@@ -41,12 +44,18 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likes.setImageResource(
-                if (post.likedByMe) R.drawable.ic_heart_red_24 else R.drawable.ic_like_24
-            )
-            likesText.text = formatCounterStr(post.likesCount)
-            sharesText.text = formatCounterStr(post.sharesCount)
-            viewText.text = formatCounterStr(post.viewsCount)
+            like.isChecked = post.likedByMe
+            like.text = "${formatCounterStr(post.likesCount)}"
+            share.text = "${formatCounterStr(post.sharesCount)}"
+            view.text = "${formatCounterStr(post.viewsCount)}"
+
+            if(post.videoLink != null) {
+                binding.videoBlock.visibility =  View.VISIBLE
+            }
+
+            binding.videoImage.setOnClickListener {
+                onInteractionListener.onShowVideo(post)
+            }
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -68,10 +77,10 @@ class PostViewHolder(
                 }.show()
             }
 
-            likes.setOnClickListener {
+            like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
-            shares.setOnClickListener{
+            share.setOnClickListener{
                 onInteractionListener.onShare(post)
             }
         }

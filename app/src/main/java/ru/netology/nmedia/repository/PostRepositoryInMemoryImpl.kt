@@ -16,7 +16,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = null
         ),
         Post(
             id = nextId++,
@@ -26,7 +27,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = "test"
         ),
         Post(
             id = nextId++,
@@ -36,14 +38,16 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = "test"
         ),
         Post(
             id = nextId++,
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Большая афиша мероприятий осени: конференции, выставки и хакатоны для жителей Москвы, Ульяновска и Новосибирска \uD83D\uDE09",
             published = "19 сентября в 14:12",
-            likedByMe = false
+            likedByMe = false,
+            videoLink = "test"
         ),
         Post(
             id = nextId++,
@@ -53,7 +57,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = "test"
         ),
         Post(
             id = nextId++,
@@ -63,7 +68,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = null
         ),
         Post(
             id = nextId++,
@@ -73,7 +79,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = null
         ),
         Post(
             id = nextId++,
@@ -83,7 +90,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = null
         ),
         Post(
             id = nextId++,
@@ -93,7 +101,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likesCount = 0,
             sharesCount = 0,
-            viewsCount = 0
+            viewsCount = 0,
+            videoLink = null
         ),
     ).reversed()
 
