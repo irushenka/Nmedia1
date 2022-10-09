@@ -18,6 +18,7 @@ interface OnInteractionListener {
     fun onEdit(post: Post) {}
     fun onRemove(post: Post) {}
     fun onShowVideo(post: Post) {}
+    fun onShowDetails(post: Post) {}
 }
 
 class PostsAdapter(
@@ -82,6 +83,10 @@ class PostViewHolder(
             }
             share.setOnClickListener{
                 onInteractionListener.onShare(post)
+            }
+
+            content.setOnClickListener {
+                onInteractionListener.onShowDetails(post)
             }
         }
     }
