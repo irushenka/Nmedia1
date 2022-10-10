@@ -76,7 +76,10 @@ class FeedFragment : Fragment() {
         }
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment,
+                Bundle().apply {
+                    textArg = viewModel.getNotSavedText()
+                })
         }
 
         return binding.root
