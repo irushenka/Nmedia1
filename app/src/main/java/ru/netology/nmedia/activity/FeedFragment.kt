@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.core.view.isVisible
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
 import ru.netology.nmedia.activity.ViewPostFragment.Companion.longArg
@@ -71,15 +72,23 @@ class FeedFragment : Fragment() {
             }
         })
         binding.list.adapter = adapter
-        viewModel.data.observe(viewLifecycleOwner) { posts ->
-            adapter.submitList(posts)
+        viewModel.data.observe(viewLifecycleOwner) { state ->
+            adapter.submitList(state.posts)
+            binding.progress.isVisible = state.loading
+            binding.errorGroup.isVisible = state.error
+            binding.emptyText.isVisible = state.empty
+        }
+
+        binding.retryButton.setOnClickListener {
+            viewModel.loadPosts()
         }
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment,
-                Bundle().apply {
-                    textArg = viewModel.getNotSavedText()
-                })
+            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+//            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment,
+//                Bundle().apply {
+//                    textArg = viewModel.getNotSavedText()
+//                })
         }
 
         return binding.root

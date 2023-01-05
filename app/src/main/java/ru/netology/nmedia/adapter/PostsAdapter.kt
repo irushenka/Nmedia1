@@ -1,6 +1,5 @@
 package ru.netology.nmedia.adapter
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +45,7 @@ class PostViewHolder(
             published.text = post.published
             content.text = post.content
             like.isChecked = post.likedByMe
-            like.text = "${formatCounterStr(post.likesCount)}"
+            like.text = "${formatCounterStr(post.likes)}"
             share.text = "${formatCounterStr(post.sharesCount)}"
             view.text = "${formatCounterStr(post.viewsCount)}"
 

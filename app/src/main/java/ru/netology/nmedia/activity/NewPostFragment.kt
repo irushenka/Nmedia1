@@ -41,19 +41,22 @@ class NewPostFragment : Fragment() {
             viewModel.changeContent(binding.edit.text.toString())
             viewModel.save()
             AndroidUtils.hideKeyboard(requireView())
+        }
+        viewModel.postCreated.observe(viewLifecycleOwner) {
+            viewModel.loadPosts()
             findNavController().navigateUp()
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (binding.edit.text != null) {
-                    viewModel.setNotSavedText(binding.edit.text.toString())
-                }
-
-                isEnabled = false
-                activity?.onBackPressed()
-            }
-        })
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                if (binding.edit.text != null) {
+//                    viewModel.setNotSavedText(binding.edit.text.toString())
+//                }
+//
+//                isEnabled = false
+//                activity?.onBackPressed()
+//            }
+//        })
 
         return binding.root
     }

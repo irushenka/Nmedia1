@@ -70,8 +70,8 @@ class ViewPostFragment : Fragment() {
             override fun onShowDetails(post: Post) {  }
         })
         val id = arguments?.longArg
-        viewModel.data.observe(viewLifecycleOwner) { posts ->
-            val post = posts.find { it.id == id } ?: run {
+        viewModel.data.observe(viewLifecycleOwner) { value ->
+            val post = value.posts.find { it.id == id } ?: run {
                 findNavController().navigateUp()
                 return@observe
             }
