@@ -79,13 +79,14 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
             val post = old.first { it.id == id }
 
             try {
-                if (post.likedByMe) {
+                var likedPost = if (post.likedByMe) {
                     repository.disLikeById(id)
                 } else {
                     repository.likeById(id)
                 }
 
-                loadPosts()
+                val newPosts = _data.value?.posts.orEmpty().map { if (it.id == id) likedPost else it }
+                _data.postValue(data.value?.copy(posts = newPosts))
             } catch (e: IOException) {
                 //TODO
             }
